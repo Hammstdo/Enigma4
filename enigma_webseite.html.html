@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Meine Enigma-Seite</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <h1>Willkommen zur Enigma-Webseite 🔐</h1>
+  <input type="text" id="eingabe" placeholder="Text eingeben">
+  <button onclick="verschluesseln()">Verschlüsseln</button>
+  <p>Ausgabe: <span id="ausgabe"></span></p>
+
+  <script>
+    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const rotor = "EKMFLGDQVZNTOWYHXUSPAIBRCJ";
+
+    function verschluesseln() {
+      let text = document.getElementById("eingabe").value.toUpperCase();
+      let ergebnis = "";
+      for (let c of text) {
+        let i = alphabet.indexOf(c);
+        if (i >= 0) {
+          ergebnis += rotor[i];
+        } else {
+          ergebnis += c;
+        }
+      }
+      document.getElementById("ausgabe").innerText = ergebnis;
+    }
+  </script>
+</body>
+</html>
